@@ -1,0 +1,51 @@
+:root {
+  /* Colors from design system */
+  --color-white: #ffffff;           /* color_ffffff */
+  --color-black: #000000;           /* color_000000 */
+  --color-grey-1: #a9a9a9;          /* color_a9a9a9 */
+  --color-grey-2: #484848;          /* color_484848 */
+  --color-primary: #129575;         /* color_129575 */
+  --color-accent: #71b1a1;          /* color_71b1a1 */
+  --color-border: #d9d9d9;          /* color_d9d9d9 */
+  --color-ellipse: #c1c1c1;         /* style_47 background */
+  --color-rating: #ffad30;          /* style_49 background */
+  --color-rating-bg: #ffe1b3;       /* style_48 background */
+  --color-pill-bg: #ffe1b3;         /* same as rating bg */
+  --color-nav-shadow: rgba(108,108,108,0.35); /* shadow_2 approximation */
+  --color-shadow-strong: rgba(32,32,32,0.25); /* shadow_1 approximation */
+
+  /* Typography (Poppins in DS; fallback to system fonts) */
+  --font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+
+  /* Font sizes and weights based on DS typos used */
+  --fs-20: 20px; /* typo_68 header */
+  --lh-30: 30px;
+
+  --fs-16: 16px; /* typo_74 New Recipes header */
+  --lh-24: 24px;
+
+  --fs-14: 14px; /* card titles */
+  --lh-21: 21px;
+
+  --fs-11: 11px; /* captions/labels */
+  --lh-17: 16.5px;
+
+  --fw-600: 600;
+  --fw-400: 400;
+
+  /* Radii per styles */
+  --radius-10: 10px;  /* style_11, style_20, style_129 */
+  --radius-12: 12px;  /* style_42 */
+  --radius-20: 20px;  /* style_48 */
+  --radius-100: 100px; /* full rounded */
+
+  /* Shadows approximations from DS */
+  --shadow-soft: 0 0 8px 0 var(--color-nav-shadow);      /* shadow_2 */
+  --shadow-card: 0 8px 25px 0 var(--color-shadow-strong); /* shadow_1 */
+
+  /* Layout */
+  --screen-max-width: 375px;
+  --gutter: 24px;
+  --gap: 12px;
+  --gap-lg: 16px;
+}

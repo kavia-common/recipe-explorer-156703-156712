@@ -1,0 +1,461 @@
+@import "../styles/design-tokens.css";
+
+/* Root screen container to simulate 375x812 device frame */
+.home {
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.home__frame {
+  width: 100%;
+  max-width: var(--screen-max-width);
+  min-height: 812px;
+  background: var(--color-white);
+  padding: 0 var(--gutter);
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Status area spacing (Figma shows Status Bar 44px height) */
+.home__status-spacer {
+  height: 44px;
+}
+
+/* Header: Greeting left, avatar right */
+.home__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.home__greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home__hello {
+  font-size: var(--fs-20);
+  line-height: var(--lh-30);
+  font-weight: var(--fw-600);
+  color: var(--color-black);
+}
+
+.home__question {
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  font-weight: var(--fw-400);
+  color: var(--color-grey-1);
+}
+
+.home__avatar {
+  width: 40px;
+  height: 40px;
+  background: #ffce80; /* style_40 bg */
+  border-radius: var(--radius-10);
+  overflow: hidden;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: var(--color-black);
+  font-size: 16px;
+}
+
+/* Search row with filter button */
+.home__search-row {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  gap: var(--gap);
+  margin-top: 24px;
+}
+
+.search {
+  height: 40px;
+  background: var(--color-white);
+  border: 1.3px solid var(--color-border); /* style_53 */
+  border-radius: var(--radius-10);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.search__icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: #292d32;
+}
+
+.search__input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  color: #d9d9d9;
+}
+
+.btn-filter {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: var(--radius-10);
+  background: var(--color-primary); /* style_11 */
+  color: var(--color-white);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Category chips */
+.home__chips {
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.chips__row {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+}
+
+.chip {
+  padding: 7px 12px;
+  border-radius: var(--radius-10);
+  background: var(--color-white); /* style_20 */
+  border: 1px solid var(--color-border);
+  color: var(--color-accent); /* style_44 color */
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  font-weight: var(--fw-600);
+  white-space: nowrap;
+}
+
+.chip--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Section title */
+.section-title {
+  margin-top: 24px;
+  font-size: var(--fs-16);
+  line-height: var(--lh-24);
+  font-weight: var(--fw-600);
+  color: var(--color-black);
+}
+
+/* Dishes horizontal cards */
+.dishes {
+  margin-top: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.dishes__row {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+
+.dish-card {
+  position: relative;
+  width: 150px;            /* per Figma */
+  height: 231px;           /* per Figma */
+}
+
+.dish-card__image-rect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 55px;               /* positions rectangle similar to y -108 overlapped by circle */
+  height: 176px;           /* per Figma */
+  background: rgba(217,217,217,0.5); /* style_42 */
+  border-radius: 12px;
+}
+
+.dish-card__circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 109px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--color-ellipse); /* style_47 */
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.dish-card__bookmark {
+  position: absolute;
+  top: 152px;  /* approx y where 24x24 bookmark sits near bottom-right of rectangle */
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-white); /* style_43 */
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.dish-card__title {
+  position: absolute;
+  top: 168px;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  font-size: var(--fs-14);
+  line-height: var(--lh-21);
+  font-weight: var(--fw-600);
+  color: var(--color-grey-2); /* style_46 */
+}
+
+.dish-card__meta {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meta__time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta__label {
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  color: var(--color-grey-1); /* typo_70 */
+  font-weight: var(--fw-400);
+}
+
+.meta__value {
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  color: var(--color-grey-2); /* typo_71 uses #484848 w600 */
+  font-weight: var(--fw-600);
+}
+
+.meta__rating-pill {
+  min-width: 45px;
+  height: 23px;
+  padding: 0 8px;
+  border-radius: 20px;      /* style_48 */
+  background: var(--color-rating-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  color: var(--color-black);
+}
+
+.meta__rating-pill .star {
+  color: var(--color-rating);
+}
+
+/* New Recipes cards (wide with circle image on right) */
+.new-recipes {
+  margin-top: 8px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.new-recipes__row {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+
+.nr-card {
+  position: relative;
+  width: 270px;        /* per Figma cards vary 251-270 - normalize to 270 */
+  height: 127px;
+}
+
+.nr-card__panel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 95px;
+  background: var(--color-white);    /* style_129 bg */
+  border-radius: var(--radius-10);
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.12); /* style_129 shadow_3 approx */
+}
+
+.nr-card__image-circle {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: var(--color-ellipse);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25); /* style_130 shadow_4 approx */
+}
+
+.nr-card__title {
+  position: absolute;
+  left: 9px;
+  top: 42px; /* roughly aligns with text inside panel */
+  width: 150px;
+  font-size: var(--fs-14);
+  line-height: var(--lh-21);
+  font-weight: var(--fw-600);
+  color: var(--color-grey-2);
+}
+
+.nr-card__rating {
+  position: absolute;
+  left: 9px;
+  top: 74px;
+  display: flex;
+  gap: 6px;
+  color: var(--color-rating);
+  font-size: 12px;
+}
+
+.nr-card__bottom {
+  position: absolute;
+  left: 9px;
+  bottom: 8px;
+  right: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nr-card__creator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nr-card__creator .avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #c4c4c4;
+}
+
+.nr-card__creator .name {
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  color: var(--color-grey-1);
+}
+
+.nr-card__time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nr-card__time .icon {
+  font-size: 14px;
+}
+
+.nr-card__time .value {
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
+  color: var(--color-grey-1);
+}
+
+/* Bottom navigation bar */
+.home__navbar {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px; /* per Figma */
+  display: grid;
+  place-items: center;
+  margin-top: 8px;
+}
+
+.nav {
+  position: relative;
+  width: 100%;
+  max-width: var(--screen-max-width);
+  height: 106px; /* inner BG */
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.nav__icons {
+  position: absolute;
+  top: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 36px;
+  box-sizing: border-box;
+  color: #292d32;
+}
+
+.nav__icons .icon {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.nav__fab {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  box-shadow: var(--shadow-soft);
+  border: 4px solid var(--color-white); /* to mimic elevation cutout */
+}
+
+/* Home indicator bar */
+.home__indicator {
+  width: 135px;
+  height: 5px;
+  background: #121212;
+  border-radius: 100px;
+  margin: 8px auto 12px;
+  opacity: 1;
+}
+
+/* Utilities */
+.hide-text-input-caret input::placeholder {
+  color: #d9d9d9;
+}
+
+/* Responsive safe area tweaks */
+@media (max-width: 400px) {
+  .nav__icons {
+    padding: 0 24px;
+  }
+}
